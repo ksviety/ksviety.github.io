@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Streamer</title>
+</head>
+<body>
+    
+    <video autoplay></video>
+
+    <script>
+
+        window.onload = () => {
+    
+            const video = document.querySelector("video");
+
+            navigator.mediaDevices.getUserMedia({video: true, audio: false})
+                .then(function(stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+            
+            const getFrame = () => {
+
+                const canvas = document.createElement("canvas");
+
+                canvas.width = video.width;
+                canvas.height = video.height;
+                canvas.getContext("2d").drawImage(video, 0, 0);
+
+                const data = canvas.toDataURL("image/png");
+
+                return data;
+            }
+
+            const WS_URL = "ws://0.0.0.0:3001";
+            const FPS = 3;
+            const ws = new WebSocket(WS_URL);
+
+            ws.onopen = () => {
+                
+                setInterval(() => {
+                    ws.send(getFrame());
+                }, 1000 / FPS);
+                
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
