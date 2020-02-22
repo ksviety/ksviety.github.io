@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles/style.css"/>
+        <title>Kitty's Age</title>
+    </head>
+    <body>
+        <h1 class="title">Kitty's Age</hq>
+        <h3 id="result">is <div id="result-age">0</div></h3>
+        <section class="form-element">
+            <header class="form-header">
+                <h3 class="form-header-title">Your cat's age in</h3>
+                <select class="metric-select" id="metrics">
+                    <option selected value="0">years</option>
+                    <option value="1">months</option>
+                    <option value="2">days</option>
+                </select>
+            </header>
+            <input id="age-input" type="number" placeholder="Age in humans metrics"/>
+            <footer class="form-footer">
+                <button id="calculate-button" onclick="applyCalculations();">CALCULATE</button>
+            </footer>
+        </section>
+    </body>
+    <script src="scripts/main.js"></script>
+</html>
