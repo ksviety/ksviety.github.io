@@ -1,0 +1,18 @@
+* { /* Common settings for the application */
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#app { /* General setting for the app container */
+    /* Make it fill the screen */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+}
+
+body {
+    background-image: url(dark-noise.png);
+}
