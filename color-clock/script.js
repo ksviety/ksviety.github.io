@@ -2,20 +2,26 @@ const clock = document.getElementById("clock")
 const color = document.getElementById("color")
 
 var showColons = true
+var previous = -1
 
 setInterval(() => {
 	tick()
 }, 1)
-
-setInterval(() => {
-	showColons = !showColons
-}, 800)
 
 const tick = () => {
 	const time = new Date();
 	const hour = time.getHours()
 	const minute = time.getMinutes()
 	const second = time.getSeconds()
+	
+	if (previous == -1) {
+		previous = second
+	}
+	
+	if (second != previous) {
+		showColorns = !showColons
+		previous = second	
+	}
 	
 	if (hour + minute + second >= 130) {
 		document.body.style.color = "#000000"
