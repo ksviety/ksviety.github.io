@@ -7,8 +7,7 @@ body {
 	width: 100vw;
 	padding: 0px;
 	margin: 0px;
-	overflow: hidden;
-	transition: ease 1000ms;
+	transition: ease 500ms;
 	color: white;
 	display: flex;
 	flex-direction: column;
